@@ -79,7 +79,6 @@ class BinarySearchTree:
         current.value = successor.value
         return self.remove(successor.value, start=current.right, parent=current)
 
-    @staticmethod
     def _get_successor(self, current):
         successor = current.right
         while successor and successor.left:

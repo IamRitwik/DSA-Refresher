@@ -1,8 +1,9 @@
 def merge_sort(array):
     if len(array) < 2:
         return array
-    first_half = merge_sort(array[ : len(array) // 2])
-    second_half = merge_sort(array[len(array) // 2 : ])
+    mid = len(array) // 2
+    first_half = merge_sort(array[ : mid])
+    second_half = merge_sort(array[mid : ])
     return merge(first_half, second_half)
 
 

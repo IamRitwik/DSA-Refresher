@@ -12,7 +12,7 @@ class SinglyLinkedList:
     def display(self):
         temp_node = self.head
         values = []
-        while temp_node is not None:
+        while temp_node:
             values.append(str(temp_node.value))
             temp_node = temp_node.next
         print("->".join(values))
@@ -97,6 +97,12 @@ class SinglyLinkedList:
         self.head, self.tail = self.tail, self.head
         return self
 
+    def __iter__(self):
+        current = self.head
+        while current:
+            yield (current.value, current.next)
+            current = current.next
+
 
 my_list = SinglyLinkedList()
 
@@ -106,6 +112,12 @@ my_list.append(9)
 my_list.append(12)
 my_list.prepend(10)
 my_list.prepend(99)
+
+print("####################")
+
+print(dict(my_list))
+
+print("####################")
 
 my_list.display()
 print("-------------------")
@@ -140,3 +152,4 @@ item = my_list.remove(9)
 print("Item removed -> " + str(item))
 print("-------------------")
 my_list.display()
+
